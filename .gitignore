@@ -26,6 +26,9 @@ wheels/
 MANIFEST
 .idea
 tstnw
+apps/opinion/migrations/
+apps/login/migrations/
+apps/dashboard/migrations/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

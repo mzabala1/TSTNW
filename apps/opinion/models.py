@@ -8,7 +8,7 @@ class Opinion(models.Model):
         (CONTRA, 'ENCONTRA'),
     ]
     id = models.AutoField(primary_key=True)
-    # user = models.ForeignKey(user, unique=False)
+    escritor = models.CharField(max_length=20, null=True)
     datetime = models.DateTimeField(auto_now=True)
     pre1 = models.TextField(max_length=296, blank=False, null=False)
     pre2 = models.TextField(max_length=296, blank=True, null=True)

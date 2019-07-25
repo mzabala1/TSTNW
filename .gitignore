@@ -25,7 +25,7 @@ wheels/
 *.egg
 MANIFEST
 .idea
-tstnw
+tstnwvirtualenv/
 apps/opinion/migrations/
 apps/login/migrations/
 apps/dashboard/migrations/

@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.conf import settings
+
 
 class Opinion(models.Model):
     FAVOR = 'A FAVOR'
@@ -8,8 +12,11 @@ class Opinion(models.Model):
         (CONTRA, 'ENCONTRA'),
     ]
     id = models.AutoField(primary_key=True)
-    escritor = models.CharField(max_length=20, null=True)
-    datetime = models.DateTimeField(auto_now=True)
+    escritor = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                 on_delete=models.CASCADE,
+                                 default="settings.AUTH_USER_MODEL",
+                                 null=False)
+    fecha = models.DateTimeField(auto_now=True)
     pre1 = models.TextField(max_length=296, blank=False, null=False)
     pre2 = models.TextField(max_length=296, blank=True, null=True)
     pre3 = models.CharField(choices=opciones, max_length=15, blank=False, null=False)

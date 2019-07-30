@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+
+{% block tittle %}
+    Lista opiniones
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr class="danger">
+            <td>#</td>
+            <td>Escritor</td>
+            <td>Fecha</td>
+            <td>preg1</td>
+            <td>preg2</td>
+            <td>preg3</td>
+        </tr>
+        </thead>
+        <tbody>
+        {%  if opiniones %}
+            {% for opinion in opiniones %}
+                <tr class="warning">
+                    <td>{{ opinion.id }}</td>
+                    <td>{{ opinion.escritor }}</td>
+                    <td>{{ opinion.fecha }}</td>
+                    <td>{{ opinion.pre1 }}</td>
+                    <td>{{ opinion.pre2 }}</td>
+                    <td>{{ opinion.pre3 }}</td>
+                </tr>
+            {% endfor %}
+
+        {% else %}
+            <h1>No hay registros de opiniones</h1>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock%}

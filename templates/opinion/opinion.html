@@ -7,48 +7,35 @@
 {% block content %}
     <form class="form-horizontal" method="post">
         {% csrf_token %}
-        <fieldset>
-            <legend>Registro de opinion</legend>
-            <fieldset class="form-group">
-                <label class="col-lg-0"> {{ form.escritor.errors }} </label>
-                <label for="{{ form.escritor.id_for_label }}" class="col-lg-2 control-label">NOmbre escritor CAMBIO LUEGO A USER:</label>
-                <div class="form-group col-lg-3">
-                    <input type="text" class="form-control" {{ form.escritor }}
-                </div>
-            </fieldset>
-            <fieldset class="form-group has-success">
-                <label class="col-lg-0"> {{ form.pregunta1.errors }} </label>
-                <label for="{{ form.pregunta1.id_for_label }}" class="col-lg-2 control-label">Ingrese la opinion 1:</label>
-                <div class="form-group col-lg-3">
-                    <input type="text" class="form-control" {{ form.pregunta1 }}
-                </div>
-            </fieldset>
-            <fieldset class="form-group has-error">
-                <label class="col-lg-0"> {{ form.pregunta2.errors }} </label>
-                <label for="{{ form.pregunta2.id_for_label }}" class="col-lg-2 control-label">Ingrese la opinion 2:</label>
-                <div class="form-group col-lg-3">
-                    <input type="text" class="form-control" {{ form.pregunta2 }}
-                </div>
-            </fieldset>
-
-            </fieldset>
-            <fieldset class="form-group">
-                <label class="col-lg-0"> {{ form.pregunta3.errors }} </label>
-                <label for="{{ form.pregunta3.id_for_label }}" class="col-lg-2 control-label">Seleccione preg3:</label>
-                <div class="radio col-lg-3">
-                    <select class="form-control" id="{{ form.pregunta3 }}">
-                        <option selected>Escoge...</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
-            </fieldset>
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <button type="submit" class="btn btn-primary">Opinar</button>
-                    <button type="reset" class="btn btn-default">Cancelar</button>
-                </div>
+        <legend>Ingresa tu opinión</legend>
+        <fieldset class="form-group has-success">
+            <label class="col-lg-0"> {{ form.pre1.errors }} </label>
+            <label for="{{ form.pre1.id_for_label }}" class="col-lg-2 control-label">Ingrese la opinion 1:</label>
+            <div class="form-group col-lg-3">
+                <input type="text" class="form-control" {{ form.pre1 }}
             </div>
         </fieldset>
+        <fieldset class="form-group has-error">
+            <label class="col-lg-0"> {{ form.pre2.errors }} </label>
+            <label for="{{ form.pre2.id_for_label }}" class="col-lg-2 control-label">Ingrese la opinion 2:</label>
+            <div class="form-group col-lg-3">
+                <input type="text" class="form-control" {{ form.pre2 }}
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <label class="col-lg-0"> {{ form.pre3.errors }} </label>
+            <label for="{{ form.pre3.id_for_label }}" class="col-lg-2 control-label">Seleccione preunta 3:</label>
+            <div class="radio col-lg-3">
+                <select class="form-control" {{ form.pre3 }}
+                </select>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" class="btn btn-primary">Opinar</button>
+                <button type="reset" class="btn btn-default">Cancelar</button>
+            </div>
+        </div>
     </form>
 {% endblock %}
+

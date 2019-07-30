@@ -6,8 +6,13 @@ class OpinionForm(forms.ModelForm):
         model = Opinion
 
         fields = [
-            'escritor',
-            'pregunta1',
-            'pregunta2',
-            'pregunta3',
+            'pre1',
+            'pre2',
+            'pre3',
         ]
+        #
+        # widgets = {
+        #     'escritor': forms.TextInput(
+        #         attrs={'class': 'from-control', 'placeholder': 'Ingresa el nombre del escritor'}
+        #     )
+        # }

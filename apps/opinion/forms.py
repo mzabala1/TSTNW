@@ -10,9 +10,3 @@ class OpinionForm(forms.ModelForm):
             'pre2',
             'pre3',
         ]
-        #
-        # widgets = {
-        #     'escritor': forms.TextInput(
-        #         attrs={'class': 'from-control', 'placeholder': 'Ingresa el nombre del escritor'}
-        #     )
-        # }

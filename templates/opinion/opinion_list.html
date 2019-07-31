@@ -1,39 +1,47 @@
 {% extends 'base/base.html' %}
+{% load staticfiles %}
 
-
-{% block tittle %}
-    Lista opiniones
-{% endblock %}
+<title>{% block tittle %} Lista opiniones {% endblock %}</title>
 
 {% block content %}
+    <section id="mu-schedule">
+        <div class="container">
+            <div class="row">
+                <div class="colo-md-12">
+                    <div class="mu-schedule-area">
+                        <div class="mu-title-area">
+                            <h2 class="mu-title">Listado de opiniones</h2>
+                            <p>En esta área encontrarás todas las opiniones de la gente que se toma su tiempo de dar una opinión sincera acerca del aborto</p>
+                        </div>
 
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr class="danger">
-            <td>#</td>
-            <td>Escritor</td>
-            <td>Fecha</td>
-            <td>preg1</td>
-            <td>preg2</td>
-            <td>preg3</td>
-        </tr>
-        </thead>
-        <tbody>
-        {%  if opiniones %}
-            {% for opinion in opiniones %}
-                <tr class="warning">
-                    <td>{{ opinion.id }}</td>
-                    <td>{{ opinion.escritor }}</td>
-                    <td>{{ opinion.fecha }}</td>
-                    <td>{{ opinion.pre1 }}</td>
-                    <td>{{ opinion.pre2 }}</td>
-                    <td>{{ opinion.pre3 }}</td>
-                </tr>
-            {% endfor %}
-
-        {% else %}
-            <h1>No hay registros de opiniones</h1>
-        {% endif %}
-        </tbody>
-    </table>
+                        <div class="mu-schedule-content-area">
+                            <div role="tabpanel" class="tab-pane fade mu-event-timeline in active" id="opinions-timeline">
+                                {%  if opiniones %}
+                                    <ul>
+                                        {% for opinion in opiniones %}
+                                            <li>
+                                                <div class="mu-single-event">
+                                                    <p class="mu-event-time">{{ opinion.fecha }}</p>
+                                                    <p class="mu-event-time">Pregunta 1:</p>
+                                                    <sup>{{ opinion.pre1 }}</sup>
+                                                    <p class="mu-event-time">Pregunta 2:</p>
+                                                    <sup>{{ opinion.pre2 }}</sup>
+                                                    <center><p class="mu-event-time">Conclusión final:</p></center>
+                                                    <center><p>{{ opinion.pre3 }}</p></center>
+                                                    <span>By {{ opinion.escritor }}</span>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <h1>No hay registros de opiniones</h1>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock%}
+<!-- End Schedule -->

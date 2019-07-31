@@ -1,8 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
-from django.conf import settings
-
 
 class Opinion(models.Model):
     FAVOR = 'A FAVOR'
@@ -11,11 +8,7 @@ class Opinion(models.Model):
         (FAVOR, 'A FAVOR'),
         (CONTRA, 'ENCONTRA'),
     ]
-    id = models.AutoField(primary_key=True)
-    escritor = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                 on_delete=models.CASCADE,
-                                 default="settings.AUTH_USER_MODEL",
-                                 null=False)
+    escritor = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     fecha = models.DateTimeField(auto_now=True)
     pre1 = models.TextField(max_length=296, blank=False, null=False)
     pre2 = models.TextField(max_length=296, blank=True, null=True)
@@ -24,7 +17,7 @@ class Opinion(models.Model):
     class Meta:
         verbose_name = 'Opinion'
         verbose_name_plural = 'Opiniones'
-        ordering = ["pre3"]  # Ordenar a la prox por nombre de usuario
+        ordering = ["fecha"]  # Ordenar a la prox por nombre de usuario
 
     def __str__(self):
         return self.pre3  # Debe tener el nombre del usuario

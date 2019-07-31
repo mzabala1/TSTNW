@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import OpinionForm
 from .models import Opinion
-from django.contrib.auth import get_user
 from django.contrib.auth.decorators import login_required
 
 
@@ -9,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 def opinion_view(request):
     form = OpinionForm(request.POST)
     if form.is_valid():
-        form.escritor = request.user.username
+        form = form.save(commit=False)
+        form.escritor = request.user
         if request.method == 'POST':
             form.save()
         return redirect('OpinionApp:Opiniones')

@@ -1207,7 +1207,8 @@ button:focus {
 .mu-contact-content{
 	display: inline;
 	float: left;
-	margin-top: 50px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	padding: 0 20%;
 	width: 100%;
 }
@@ -1311,7 +1312,7 @@ button:focus {
 
 
 #mu-footer {
-	background-color: #f8f8f8;
+	background-color: #ffffff;
 	display: inline;
 	float: left;
 	width: 100%;

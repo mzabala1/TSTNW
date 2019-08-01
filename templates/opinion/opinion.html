@@ -5,42 +5,131 @@
 {% endblock %}
 
 {% block content %}
-    <form class="form-horizontal" method="post">
+    <form method="post" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
         {% csrf_token %}
-        <legend>Ingresa tu opinión</legend>
-        <fieldset class="form-group has-success">
+        <section id="mu-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mu-title-area">
+                            <h2 class="mu-heading-title">Da tu aporte al tema opinando</h2>
+                            <p>Se sincer@ con tu opinión, es apreciada y unica.</p>
+                        </div>
 
-            <div>
-                <label for="{{ form.pre1.id_for_label }}" class="col-lg-2 control-label">¿Cúal es tu opinión acerca del aborto?</label>
-                <div class="form-group col-lg-3">
-                    <input type="text" class="form-control" {{ form.pre1 }}
+                        <div class="mu-contact-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mu-contact-form-area">
+                                        <div id="form-messages"></div>
+                                        <form id="ajax-contact" method="post" class="mu-contact-form">
+                                            <div class="form-group">
+                                                <center><h4><label>¿Cúal es tu opinión acerca del aborto?</label></h4></center>
+                                                <textarea class="form-control" placeholder="Opinión"   name="pre1" cols="40" rows="5" maxlength="296" required id="id_pre1"></textarea>
+                                                {{ form.pre1.errors }}
+                                            </div>
+                                            <div class="form-group">
+                                                <center><h4><label>¿Qué solución propones a la problematica?</label></h4></center>
+                                                <textarea class="form-control" placeholder="Solución" name="pre2" cols="40" rows="5" maxlength="296" id="id_pre2" ></textarea>
+                                                {{ form.pre2.errors }}
+                                            </div>
+
+                                            <center><div class="form-group">
+                                                <div><h4><label for="exampleFormControlTextarea1">En conclusión ¿cúal sería tu posición frente al aborto?</label></h4></div>
+                                                <p></p>
+                                                <label><input name="pre3"  type="radio"  value="A FAVOR"> A FAVOR</label>
+                                                <label><input name="pre3"  type="radio" value="EN CONTRA"> EN CONTRA</label>
+                                            </div></center>
+
+                                                {{ form.pre3.errors }}
+                                            <center><button type="submit" class="mu-send-msg-btn"><span>Opinar</span></button></center>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div>
-                <label class="col-lg-0"> {{ form.pre1.errors }} </label>
-            </div>
-        </fieldset>
-        <fieldset class="form-group has-error">
-            <label class="col-lg-0"> {{ form.pre2.errors }} </label>
-            <label for="{{ form.pre2.id_for_label }}" class="col-lg-2 control-label">Ingrese la opinion 2:</label>
-            <div class="form-group col-lg-3">
-                <input type="text" class="form-control" {{ form.pre2 }}
-            </div>
-        </fieldset>
-        <fieldset class="form-group">
-            <label class="col-lg-0"> {{ form.pre3.errors }} </label>
-            <label for="{{ form.pre3.id_for_label }}" class="col-lg-2 control-label">Posición frente al aborto</label>
-            <div class="radio col-lg-3">
-                <select class="form-control" {{ form.pre3 }}
-                </select>
-            </div>
-        </fieldset>
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary">Opinar</button>
-            </div>
-        </div>
+        </section>
     </form>
 {% endblock %}
 
+
+<section id="mu-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-contact-area">
+
+                    <div class="mu-title-area">
+                        <h2 class="mu-heading-title">Da tu aporte al tema opinando</h2>
+                        <p>Se sincer@ con tu opinión, es apreciada y unica.</p>
+                    </div>
+
+                    <!-- Start Contact Content -->
+                    <div class="mu-contact-content">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="mu-contact-form-area">
+                                    <div id="form-messages"></div>
+                                    <form id="ajax-contact" method="post" action="/mail/" class="mu-contact-form">
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Message" id="message" name="message" required></textarea>
+                                        </div>
+                                        <button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Contact Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<form class="form-horizontal" method="post">
+    {% csrf_token %}
+    <legend>Ingresa tu opinión</legend>
+    <fieldset class="form-group has-success">
+
+        <div>
+            <label for="{{ form.pre1.id_for_label }}" class="col-lg-2 control-label">¿Cúal es tu opinión acerca del aborto?</label>
+            <div class="form-group col-lg-3">
+                <input type="text" class="form-control" {{ form.pre1 }}
+            </div>
+        </div>
+
+        <div>
+            <label class="col-lg-0"> {{ form.pre1.errors }} </label>
+        </div>
+    </fieldset>
+    <fieldset class="form-group has-error">
+        <label class="col-lg-0"> {{ form.pre2.errors }} </label>
+        <label for="{{ form.pre2.id_for_label }}" class="col-lg-2 control-label">¿Qué solución propones a la problematica?</label>
+        <div class="form-group col-lg-3">
+            <input type="text" class="form-control" {{ form.pre2 }}
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="col-lg-0"> {{ form.pre3.errors }} </label>
+        <label for="{{ form.pre3.id_for_label }}" class="col-lg-2 control-label">Posición frente al aborto</label>
+        <div class="radio col-lg-3">
+            <select class="form-control" {{ form.pre3 }}
+            </select>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary">Opinar</button>
+        </div>
+    </div>
+</form>

@@ -25,6 +25,7 @@
                 <div class="form-group">
                     <label>Nombre de usuario</label>
                     <input class="form-control" type="text" name="username">
+                    {{ form.username.errors }}
                 </div>
             </div>
         </div>
@@ -41,6 +42,7 @@
                 <div class="form-group">
                     <label>Contraseña</label>
                     <input class="form-control" type="password" name="password1">
+                    {{ form.password1.errors }}
                 </div>
             </div>
         </div>
@@ -49,10 +51,9 @@
                 <div class="form-group">
                     <label>Confirmar contraseña</label>
                     <input class="form-control" type="password" name="password2">
+                    {{ form.password2.errors }}
                 </div>
             </div>
-        </div>
-        {{ form.errors }}
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">

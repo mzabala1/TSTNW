@@ -25,7 +25,7 @@ SECRET_KEY = '4vyp1xdodcxpnjwvz-v%6o_i)#g64ej_l&n4+p!!o1wpr=xd82'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'tstnwdb',
         'USER': 'tstnwadmin',
         'PASSWORD': 'tstnwadminpass',
-        'HOST': 'localhost',
+        'HOST': 'postgres',
         'PORT': 5432
     }
 }
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 

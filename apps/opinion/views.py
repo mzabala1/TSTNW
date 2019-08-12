@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import OpinionForm
 from .models import Opinion
+from .serializers import OpinionSerializer
+from rest_framework import generics
 from django.contrib.auth.decorators import login_required
 
 
@@ -22,3 +24,15 @@ def opiniones_list(request):
     contexto = {'opiniones': opinion}
 
     return render(request, 'opinion/opinion_list.html', contexto)
+
+
+class OpinionesRudView(generics.RetrieveUpdateDestroyAPIView):
+    lookup_field = 'pk' #id
+    serializer_class = OpinionSerializer
+    queryset = Opinion.objects.all()
+
+
+class OpinionesFullList(generics.ListAPIView):
+    lookup_field = 'pk' #id
+    serializer_class = OpinionSerializer
+    queryset = Opinion.objects.all()

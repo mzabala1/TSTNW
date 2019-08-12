@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Opinion(models.Model):
 
     escritor = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
@@ -14,5 +15,3 @@ class Opinion(models.Model):
         verbose_name_plural = 'Opiniones'
         ordering = ["-fecha"]  # Ordenar a la prox por nombre de usuario
 
-    def __str__(self):
-        return self.pre3  # Debe tener el nombre del usuario

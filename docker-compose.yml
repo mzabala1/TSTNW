@@ -15,6 +15,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     # sudo docker exec -it [ID Contenedor de Docker] python /TSTNW/manage.py createsuperuser
+    # sudo docker-compose run tstnwapp bash
   tstnwapp:
     image: python:3.6.8
     hostname: tstnwapp

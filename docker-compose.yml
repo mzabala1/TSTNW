@@ -2,11 +2,15 @@ version: '3'
 volumes:
   pgdata:
 services:
-
   postgres:
     image: postgres:10.6
     environment:
-      - config/db/db1_env
+      POSTGRES_USER:
+        tstnwadmin
+      POSTGRES_PASS:
+        tstnwadminpass
+      POSTGRES_DB:
+        tstnwdb
     volumes:
       - pgdata:/var/lib/postgresql/data
     # sudo docker exec -it [ID Contenedor de Docker] python /TSTNW/manage.py createsuperuser

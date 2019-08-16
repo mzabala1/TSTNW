@@ -35,10 +35,16 @@ services:
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - ./static:/static
-      - ./tstnwvirtualenv/lib/python3.6/site-packages/rest_framework/static/rest_framework:/static/rest_framework
-      - ./tstnwvirtualenv/lib/python3.6/site-packages/django/contrib/admin/static/admin:/static/admin #Corregit esto para prod porque no va a coger los static de un virtualenv en producción
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+      #Corregit esto para prod porque no va a coger los static de un virtualenv en producción
     depends_on:
       - tstnwapp
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
 
 networks:
   nginx_network:

@@ -21,10 +21,8 @@ services:
     hostname: tstnwapp
     volumes:
       - ../TSTNW:/TSTNW
-    expose:
-      - "8000"
     command: >
-      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn --bind :80 TSTNW.wsgi"
+      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && gunicorn --bind :80 TSTNW.wsgi"
     depends_on:
       - postgres
 
@@ -35,16 +33,8 @@ services:
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - ./static:/static
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-      #Corregit esto para prod porque no va a coger los static de un virtualenv en producción
     depends_on:
       - tstnwapp
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
 
 networks:
   nginx_network:

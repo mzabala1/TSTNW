@@ -22,7 +22,7 @@ services:
     volumes:
       - ../TSTNW:/TSTNW
     command: >
-      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && gunicorn --bind :80 TSTNW.wsgi"
+      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && gunicorn --bind :8000 TSTNW.wsgi"
     depends_on:
       - postgres
 

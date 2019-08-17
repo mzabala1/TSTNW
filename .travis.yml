@@ -1,0 +1,44 @@
+## En desarrollo
+#dist: xenial  # required to run 3.7+
+#language: python
+#sudo: true
+#python: 3.6.8
+#
+#cache:
+#  directories:
+#    - $HOME/.cache/pip
+#before_script:
+#  - python manage.py makemigrations
+#  - python manage.py migrate
+#  - python manage.py collectstatic --noinput
+#install:
+#    - pip install -r requirements.txt
+#    - pip install braintree coveralls mock mysqlclient reportlab apprise
+#matrix:
+#  include:
+#    - python: 3.7
+#      dist: xenial
+#      sudo: true
+#
+#env:
+#  global:
+#    - EMAIL_HOST_USER=abc@xyz.com
+#    - DB_USER=jeklog
+#    - DB_PASS=jeklog
+#    - DB_NAME=jeklog
+#    - EMAIL_HOST_PASSWORD=notreal
+#    - SOCIAL_AUTH_GITHUB_KEY=n9n39e87gbrn939
+#    - SOCIAL_AUTH_GITHUB_SECRET=mfdf84hnf4
+#    - STATIC_W_R_T_BASE='/home/ranvir/'
+#services:
+#  - postgresql
+#addons:
+#  postgresql: "9.6"
+#script:
+#  - coverage run --omit=*/tests/* --source=hc manage.py test
+#  - coverage run --source=track runtests.py
+#after_success: coveralls
+#
+
+
+

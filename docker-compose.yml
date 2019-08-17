@@ -1,0 +1,36 @@
+version: '3'
+volumes:
+  pgdata:
+services:
+  postgres:
+    image: postgres:10.6
+    hostname: db
+    environment:
+      - config/db/db1_env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # sudo docker exec -it [ID Contenedor de Docker] python /TSTNW/manage.py createsuperuser
+    # sudo docker-compose run tstnwapp bash
+  tstnwapp:
+    image: python:3.6.8
+    hostname: tstnwapp
+    volumes:
+      - ../TSTNW:/TSTNW
+    command: >
+      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && gunicorn --bind :80 TSTNW.wsgi"
+    depends_on:
+      - postgres
+
+  nginx:
+    image: nginx:1.13
+    ports: # <-- Cambiar a 80:80 luego en prod
+      - 80:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/static
+    depends_on:
+      - tstnwapp
+
+networks:
+  nginx_network:
+    driver: bridge

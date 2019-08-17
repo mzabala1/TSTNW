@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %}
+    Tú opinión
+{% endblock %}
+
+{% block content %}
+
+    <section id="mu-schedule">
+        <div class="container">
+            <div class="row">
+                <div class="colo-md-12">
+                    <div class="mu-schedule-area">
+                        <div class="mu-title-area">
+                            <h2 class="mu-heading-title">Da tu aporte al tema opinando</h2>
+                            <p>Se sincer@ con tu opinión, es apreciada y unica.</p>
+                        </div>
+                        <form method="post" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+                            {% csrf_token %}
+                            <div class="mu-contact-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mu-contact-form-area">
+                                            <div id="form-messages"></div>
+                                            <form id="ajax-contact" method="post" class="mu-contact-form">
+                                                <div class="form-group">
+                                                    <center><h4><label>¿Cúal es tu opinión acerca del aborto?</label></h4></center>
+                                                    <textarea class="form-control" placeholder="Opinión"   name="pre1" cols="40" rows="5" maxlength="296" required id="id_pre1"></textarea>
+                                                    {{ form.pre1.errors }}
+                                                </div>
+                                                <div class="form-group">
+                                                    <center><h4><label>¿Qué solución propones a la problematica?</label></h4></center>
+                                                    <textarea class="form-control" placeholder="Solución" name="pre2" cols="40" rows="5" maxlength="296" id="id_pre2" ></textarea>
+                                                    {{ form.pre2.errors }}
+                                                </div>
+
+                                                <center><div class="form-group">
+                                                    <div><h4><label>En conclusión ¿cúal sería tu posición frente al aborto?</label></h4></div>
+                                                    <p></p>
+                                                    <label><input name="pre3"  type="radio"  value="A FAVOR"> A FAVOR</label>
+                                                    <label><input name="pre3"  type="radio" value="EN CONTRA"> EN CONTRA</label>
+                                                </div></center>
+
+                                                {{ form.pre3.errors }}
+                                                <center><button type="submit" class="mu-send-msg-btn"><span>Opinar</span></button></center>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

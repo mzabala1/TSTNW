@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %}
+    The Story That Never Was
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="colo-md-12">
+                <div class="mu-schedule-area">
+                    <div class="mu-title-area">
+                        <h2 class="mu-heading-title">LA HISTORIA QUE NUNCA FUE</h2>
+                        <br>
+                        <div>
+                            <h4> ¿Qué significa estar en contra o a favor del aborto? </h4>
+                            <p>
+                                Estar en contra del aborto es una posición cultural, religiosa y moralmente secular.
+                                Estar en contra de la despenalización del aborto es una posición políticamente
+                                correcta, si bien en sus consecuencias y en sus resultados es opinable para unos, para otros ni revisable y
+                                para algunos, absolutamente
+                                incorrecta.</p>
+                            <b><p> Has sido invitad@ a dar, no solo tú mirada,
+                                sino una reflexión sobre los aspectos positivos y negativos del aborto.</p></b>
+                            <legend></legend>
+                            <h3> Si deseas dar tu opinión porfavor <a href="{% url 'UsuarioApp:Registrarse' %}">registrate</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}

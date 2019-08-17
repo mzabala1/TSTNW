@@ -1,0 +1,67 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block tittle %} Lista opiniones {% endblock %}
+
+{% block content %}
+    <section id="mu-schedule">
+        <div class="container">
+            <div class="row">
+                <div class="colo-md-12">
+                    <div class="mu-schedule-area">
+                        <div class="mu-title-area">
+                            <h2 class="mu-title">Listado de opiniones</h2>
+                            <p>En esta área encontrarás todas las opiniones de la gente que se toma su tiempo de dar una opinión sincera acerca del aborto</p>
+                        </div>
+
+                        <div class="mu-schedule-content-area">
+                            <div role="tabpanel" class="tab-pane fade mu-event-timeline in active" id="opinions-timeline">
+                                <div class="container">
+
+                                    <center><div class="form-group">
+                                        <form method="GET">
+                                            <div class="form-group col-lg-6">
+                                                <label>Escritor: </label>
+                                                {{ filter.form.escritor|bootstrap_inline}}
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label>A Favor o en contra: </label>
+                                                {{ filter.form.pre3|bootstrap_inline}}
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-info btn-default" type="submit">Filtrar</button>
+                                            </div>
+                                        </form>
+                                    </div></center>
+
+                                </div>
+
+                                {%  if filter.qs %}
+                                    <ul>
+                                        {% for opinion in filter.qs %}
+                                            <li>
+                                                <div class="mu-single-event">
+                                                    <p class="mu-event-time">{{ opinion.fecha }}</p>
+                                                    <p class="mu-event-time">Pregunta 1:</p>
+                                                    <sup>{{ opinion.pre1 }}</sup>
+                                                    <p class="mu-event-time">Pregunta 2:</p>
+                                                    <sup>{{ opinion.pre2 }}</sup>
+                                                    <center><p class="mu-event-time">Conclusión final:</p></center>
+                                                    <center><p>{{ opinion.pre3 }}</p></center>
+                                                    <span>By {{ opinion.escritor }}</span>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <center><h1><b>No hay registros de opiniones</b></h1></center>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock%}

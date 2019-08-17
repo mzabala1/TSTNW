@@ -6,6 +6,6 @@ app_name = "OpinionApp"
 urlpatterns = [
         path('', opinion_view, name="Opinion"),
         path('opiniones', opiniones_list, name='Opiniones'),
-        path('api/opiniones/', OpinionesFullList.as_view(), name='opiniones-list'),
-        path('api/opiniones/<pk>/', OpinionesRudView.as_view(), name='opiniones-rud'),
+        path('api/opiniones/', OpinionesFullList.as_view(), name='rest-opiniones-list'),
+        path('api/opiniones/<pk>/', OpinionesRudView.as_view(), name='rest-opiniones-rud'),
 ]

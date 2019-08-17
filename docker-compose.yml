@@ -6,12 +6,7 @@ services:
     image: postgres:10.6
     hostname: db
     environment:
-      POSTGRES_USER:
-        tstnwadmin
-      POSTGRES_PASS:
-        tstnwadminpass
-      POSTGRES_DB:
-        tstnwdb
+      - config/db/db1_env
     volumes:
       - pgdata:/var/lib/postgresql/data
     # sudo docker exec -it [ID Contenedor de Docker] python /TSTNW/manage.py createsuperuser
@@ -22,7 +17,7 @@ services:
     volumes:
       - ../TSTNW:/TSTNW
     command: >
-      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && gunicorn --bind :8000 TSTNW.wsgi"
+      bash -c "cd /TSTNW && pip install -r requirements.txt && python manage.py makemigrations && python manage.py migrate && gunicorn --bind :80 TSTNW.wsgi"
     depends_on:
       - postgres
 

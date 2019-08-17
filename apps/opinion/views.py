@@ -4,7 +4,8 @@ from .models import Opinion
 from .serializers import OpinionSerializer
 from rest_framework import generics
 from django.contrib.auth.decorators import login_required
-
+from .filters import OpinionFilter
+from django.views.generic import ListView
 
 @login_required
 def opinion_view(request):
@@ -21,10 +22,9 @@ def opinion_view(request):
 
 def opiniones_list(request):
     opinion = Opinion.objects.all()
-    contexto = {'opiniones': opinion}
+    opinion_filter = OpinionFilter(request.GET, queryset=opinion)
 
-    return render(request, 'opinion/opinion_list.html', contexto)
-
+    return render(request, 'opinion/opinion_list.html', {'filter': opinion_filter})
 
 class OpinionesRudView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk' #id

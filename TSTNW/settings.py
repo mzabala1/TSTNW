@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.opinion',
     'apps.usuario',
-    'rest_framework'
+    'rest_framework',
+    'django_filters',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

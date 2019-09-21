@@ -4,22 +4,11 @@ volumes:
 
 services:
   postgres:
-    image: postgres:10.6
+    build: ../Docker_db/
     hostname: db
-    environment:
-      - POSTGRES_USER=tstnwadmin
-      - POSTGRES_PASS=tstnwadminpass
-      - POSTGRES_DB=tstnwdb
     volumes:
       - pgdata:/var/lib/postgresql/data
-
-    # sudo docker-compose exec postgres psql -U postgres
-    # CREATE DATABASE tstnwdb;
-    # CREATE ROLE tstnwadmin WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'tstnwadminpass';
-    # GRANT ALL PRIVILEGES ON DATABASE tstnwdb TO tstnwadmin;
-
-    # sudo docker exec -it [ID Contenedor de Docker] python /TSTNW/manage.py createsuperuser
-    # sudo docker-compose run tstnwapp bash
+      
   tstnwapp:
     image: python:3.6.8
     hostname: tstnwapp

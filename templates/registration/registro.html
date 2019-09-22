@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="mu-schedule-area">
-        <form method="post">
+        <form method="POST">
             {% csrf_token %}
 
             <div class="row">
@@ -47,6 +47,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-12 col-md-offset-2" >
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="6LeJmLkUAAAAAEIx_XZ4hhK6BJ3JlclhBoSHmfH8"></div>
+            </div>
+
+
+
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="form-group">
@@ -59,7 +67,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            <button class="btn btn-primary" value="submit" type="submit">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -67,3 +75,26 @@
         </form>
     </div>
 {% endblock %}
+
+<html>
+<head>
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            grecaptcha.render('html_element', {
+                'sitekey' : '6LeJmLkUAAAAAEIx_XZ4hhK6BJ3JlclhBoSHmfH8'
+            });
+        };
+    </script>
+</head>
+<body>
+<form action="?" method="POST">
+    <div id="html_element"></div>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+</body>
+</html>

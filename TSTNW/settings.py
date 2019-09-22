@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'bootstrapform',
+    'snowpenguin.django.recaptcha2',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,13 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'static')
 
 LOGIN_REDIRECT_URL = '/opinion/'
 
+RECAPTCHA_PRIVATE_KEY = '6LeJmLkUAAAAANm9giEE-4ThXapppKifRNwOpvei'
+
+RECAPTCHA_PUBLIC_KEY = '6LeJmLkUAAAAAEIx_XZ4hhK6BJ3JlclhBoSHmfH8'
+
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LeJmLkUAAAAANm9giEE-4ThXapppKifRNwOpvei'
+
+GOOGLE_RECAPTCHA_PUBLIC_KEY = '6LeJmLkUAAAAAEIx_XZ4hhK6BJ3JlclhBoSHmfH8'
+# If you require reCaptcha to be loaded from somewhere other than https://google.com
+# (e.g. to bypass firewall restrictions), you can specify what proxy to use.
+# RECAPTCHA_PROXY_HOST = 'https://recaptcha.net'

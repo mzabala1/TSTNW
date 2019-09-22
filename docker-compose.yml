@@ -1,16 +1,14 @@
 version: '3'
 volumes:
   pgdata:
+
 services:
   postgres:
-    image: postgres:10.6
+    build: ./config//Docker_db/
     hostname: db
-    environment:
-      - config/db/db1_env
     volumes:
       - pgdata:/var/lib/postgresql/data
-    # sudo docker exec -it [ID Contenedor de Docker] python /TSTNW/manage.py createsuperuser
-    # sudo docker-compose run tstnwapp bash
+      
   tstnwapp:
     image: python:3.6.8
     hostname: tstnwapp

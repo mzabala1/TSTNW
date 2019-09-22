@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+# Modelo para las opiniones
 class Opinion(models.Model):
 
     escritor = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)

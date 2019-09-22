@@ -1,3 +1,0 @@
-POSTGRES_USER: tstnwadmin
-POSTGRES_PASS: tstnwadminpass
-POSTGRES_DB: tstnwdb

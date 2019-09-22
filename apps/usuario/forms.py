@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 
-
+# Formulario de Registro
 class RegistroForm(UserCreationForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget(attrs={'classs': 'validate'}), label="")
 

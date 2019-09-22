@@ -4,7 +4,7 @@ volumes:
 
 services:
   postgres:
-    build: ../Docker_db/
+    build: ./config//Docker_db/
     hostname: db
     volumes:
       - pgdata:/var/lib/postgresql/data

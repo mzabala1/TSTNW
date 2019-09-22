@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from .filters import OpinionFilter
 from django.views.generic import ListView
 
+# Definición de vistas del módelo y renderizar en la página web.
+
 @login_required
 def opinion_view(request):
     form = OpinionForm(request.POST)
